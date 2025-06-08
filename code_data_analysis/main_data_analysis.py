@@ -8,9 +8,9 @@ import seaborn as sns
 from sklearn.feature_selection import chi2 
 sns.set_theme(rc={'figure.figsize':(12,8)})
 #%%
-path = r"\\wsl.localhost\Ubuntu\home\lucas_linux\projetos\Forecasting_case\code_data_analysis\exports\\"
+path = r"..\data\code_data_analysis\exports\\"
 #%%
-df = pd.read_excel(r"\\wsl.localhost\Ubuntu\home\lucas_linux\projetos\Forecasting_case\data\toy_dataset.xlsx")
+df = pd.read_excel(r"..\data\toy_dataset.xlsx")
 df.columns = df.columns.str.strip().str.lower()
 df.set_index("date", inplace = True)
 #%%
