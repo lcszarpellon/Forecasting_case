@@ -37,6 +37,36 @@ df_plot= df.groupby(df.index)['forecast'].sum().to_frame()
 sns.lineplot(x=df_plot.index,y=df_plot['forecast'])
 plt.savefig(path+'plot_original_trend.jpg', format='jpg', dpi=300, bbox_inches='tight')
 
+#%%
+df_plot_bar = df.groupby(['state', 'dealer'])['forecast'].sum().reset_index()
+#%%
+sns.barplot(data=df_plot_bar, x='state', y='forecast')
+plt.title("Sum of Forecasts per State")
+plt.xlabel("State")
+plt.ylabel("Forecast Sum")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+plt.savefig(path+'plot_bar_state.jpg', format='jpg', dpi=300, bbox_inches='tight')
+#%%
+sns.barplot(data=df_plot_bar, x='dealer', y='forecast')
+plt.title("Sum of Forecasts per Dealer")
+plt.xlabel("Dealer")
+plt.ylabel("Forecast Sum")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+plt.savefig(path+'plot_bar_dealer.jpg', format='jpg', dpi=300, bbox_inches='tight')
+#%%
+sns.barplot(data=df_plot_bar, x='state', y='forecast', hue='dealer')
+plt.title("Sum of Forecasts per State by Dealer")
+plt.xlabel("State")
+plt.ylabel("Forecast Sum")
+plt.xticks(rotation=45)
+plt.legend(title="Dealer")
+plt.tight_layout()
+plt.show()
+plt.savefig(path+'plot_bar_state_dealer.jpg', format='jpg', dpi=300, bbox_inches='tight')
 
 #%%
 
