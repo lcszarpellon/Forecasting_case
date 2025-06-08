@@ -16,7 +16,7 @@ import warnings
 import sys
 import os
 from datetime import datetime
-sys.path.append(os.path.abspath(r"\\wsl.localhost\Ubuntu\home\lucas_linux\projetos\Forecasting_case\code"))
+sys.path.append(os.path.abspath(r"..\code_forecast_model\classes"))
 from Data_ETL_Class import ETL_Model
 from SARIMA_Class import SARIMA_Model
 warnings.filterwarnings('ignore')
@@ -24,11 +24,11 @@ plt.rcParams['figure.figsize'] = [10,5]
 
 #%%
 current_date = datetime.now().strftime("%Y-%m-%d")
-path = r'\\wsl.localhost\Ubuntu\home\lucas_linux\projetos\Forecasting_case\code_forecast_model\exports\\'
+path = r'..\code_forecast_model\exports\\'
 file_name_perform = f'model_performance_{current_date}.xlsx'
 file_name_result = f'forecast_results_{current_date}.xlsx'
 #%%
-original_df = pd.read_excel(r"\\wsl.localhost\Ubuntu\home\lucas_linux\projetos\Forecasting_case\data\toy_dataset.xlsx")
+original_df = pd.read_excel(r"..\data\toy_dataset.xlsx")
 original_df.columns = original_df.columns.str.strip().str.lower()
 original_df['id'] = original_df['id'].astype('string')
 #%%
